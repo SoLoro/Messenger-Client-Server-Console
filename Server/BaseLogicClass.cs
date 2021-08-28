@@ -258,4 +258,10 @@ namespace Server
 
     // Заполнение
   }
+  public class AuthData
+  {
+    public string login { get; set; }
+    public string password { get; set; }
+    public string ip { get; set; }
+  }
 }
