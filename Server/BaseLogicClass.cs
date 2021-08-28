@@ -29,6 +29,64 @@ namespace Server
     }
   }
   [Serializable]
+  public class MessagesClass
+  {
+    public List<message> messages = new List<message>();
+
+    public MessagesClass()
+    {
+      messages.Clear();
+      message ms = new message();
+      messages.Add(ms);
+    }
+
+    public void Add(message ms)
+    {
+      ms.timestamp = DateTime.Now.ToString("dd MMM H:mm");
+      messages.Add(ms);
+      Console.WriteLine(messages.Count);
+    }
+
+    public void Add(string username, string text)
+    {
+      message msg = new message(username, text);
+      messages.Add(msg);
+      Console.WriteLine(messages.Count);
+    }
+
+    public message Get(int id)
+    {
+      return messages.ElementAt(id);
+    }
+
+    public int GetCountMessages()
+    {
+      return messages.Count;
+    }
+
+    // Сохраняем сообщения перед выходом
+    public static void SaveHistoryToFile(string filename = "history.json")
+    {      
+      var messageinjson = new StringWriter();
+      var serializer = new JsonSerializer();
+      serializer.Serialize(messageinjson, Program.ms);
+      using (var jsoninfile = new StreamWriter(filename))
+      {
+        jsoninfile.Write(messageinjson);
+      }
+    }
+
+    // Достаём сообщения из файла
+    public static void GetHistoryFromFile(string filename = "history.json")
+    {
+      var serializer = new JsonSerializer();
+      using (var jsonfromfile = new StreamReader(filename))
+      {        
+        Program.ms = (MessagesClass)serializer.Deserialize(new StringReader(jsonfromfile.ReadToEnd()), typeof(MessagesClass));        
+      }
+    }
+  }
+  [Serializable]
   public class SessionsClass
   {
     public List<tokens> list_tokens = new List<tokens>();
