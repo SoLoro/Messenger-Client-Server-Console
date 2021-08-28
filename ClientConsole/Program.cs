@@ -62,6 +62,15 @@ namespace DotChat
             };
             //winMain.ColorScheme = colorDark;
             Application.Top.Add(winMain);
+            
+            // Создание окна с сообщениями
+            winMessages = new Window() {
+                X = 0,
+                Y = 0,
+                Width = winMain.Width,
+                Height = winMain.Height - 2,
+            };
+            winMain.Add(winMessages);
         }
     }
 }
