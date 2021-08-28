@@ -51,6 +51,17 @@ namespace DotChat
                 Height = 1,
             };
             Application.Top.Add(menu);
+            
+            // Создание главного окна
+            winMain = new Window() {
+                X = 0,
+                Y = 1,
+                Width = Dim.Fill(),
+                Height = Dim.Fill(),
+                Title = "DotChat",
+            };
+            //winMain.ColorScheme = colorDark;
+            Application.Top.Add(winMain);
         }
     }
 }
