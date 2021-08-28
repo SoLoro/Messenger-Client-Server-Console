@@ -114,6 +114,18 @@ namespace DotChat
                 Height = 1,
             };
             winMain.Add(fieldMessage);
+            
+            // Создание кнопки отправки
+            btnSend = new Button()
+            {
+                X = Pos.Right(winMain) - 15,
+                Y = Pos.Bottom(winMain) - 4,
+                Width = 15,
+                Height = 1,
+                Text = "  SEND  ",
+            };
+            btnSend.Clicked += OnBtnSendClick;
+            winMain.Add(btnSend);
         }
     }
 }
