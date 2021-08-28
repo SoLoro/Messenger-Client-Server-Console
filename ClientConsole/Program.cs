@@ -156,5 +156,22 @@ namespace DotChat
                 fieldMessage.Text = "";
             }
         }
+        
+        // Синхронизирует список сообщений с представлением
+        static void MessagesUpdate() {
+            winMessages.RemoveAll();
+            int offset = 0;
+            for (var i = messages.Count - 1; i >= 0; i--) {
+                View msg = new View() { 
+                    X = 0, Y = offset,
+                    Width = winMessages.Width,
+                    Height = 1,
+                    Text = $"[{messages[i].username}] {messages[i].text}",
+                };
+                winMessages.Add(msg);
+                offset++;
+            }
+            Application.Refresh();
+        }
     }
 }
