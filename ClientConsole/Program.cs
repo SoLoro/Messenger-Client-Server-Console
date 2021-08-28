@@ -71,6 +71,17 @@ namespace DotChat
                 Height = winMain.Height - 2,
             };
             winMain.Add(winMessages);
+            
+            // Создание надписи с username
+            labelUsername = new Label() { 
+                X = 0,
+                Y = Pos.Bottom(winMain) - 5,
+                Width = 15,
+                Height = 1,
+                Text = "Username:",
+                TextAlignment = TextAlignment.Right,
+            };
+            winMain.Add(labelUsername);
         }
     }
 }
