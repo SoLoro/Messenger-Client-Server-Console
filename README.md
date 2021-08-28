@@ -33,7 +33,7 @@ ____
         - *password: admin*
 - Opportunities
     - **Being in the administrator account, you have the ability to delete any user messages**
-    - **This is done using the ID***
+    - **This is done using the ID**
     - *You just need to send the following message to the chat:*
         ```
             /delete ID
