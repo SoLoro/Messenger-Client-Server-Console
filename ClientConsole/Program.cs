@@ -143,5 +143,18 @@ namespace DotChat
 
             Application.Run();
         }
+        // Реакция на клик кнопки
+        static void OnBtnSendClick() {
+            if (fieldUsername.Text.Length != 0 && fieldMessage.Text.Length != 0)
+            {
+                Message msg = new Message()
+                {
+                    username = fieldUsername.Text.ToString(),
+                    text = fieldMessage.Text.ToString(),
+                };
+                SendMessage(msg);
+                fieldMessage.Text = "";
+            }
+        }
     }
 }
