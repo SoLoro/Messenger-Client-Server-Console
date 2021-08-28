@@ -104,6 +104,16 @@ namespace DotChat
                 Height = 1,
             };
             winMain.Add(fieldUsername);
+            
+            // Создание поля ввода message
+            fieldMessage = new TextField()
+            {
+                X = 15,
+                Y = Pos.Bottom(winMain) - 4,
+                Width = winMain.Width - 15,
+                Height = 1,
+            };
+            winMain.Add(fieldMessage);
         }
     }
 }
