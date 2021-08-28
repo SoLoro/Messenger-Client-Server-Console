@@ -188,5 +188,15 @@ namespace DotChat
 
             req.GetResponse();
         }
+        
+        // Получает сообщение с сервера
+        static Message GetMessage(int id) {
+            WebRequest req = WebRequest.Create($"http://localhost:5000/api/chat/{id}");
+            WebResponse resp = req.GetResponse();
+            string smsg = new StreamReader(resp.GetResponseStream()).ReadToEnd();
+
+            if (smsg == "Not found") return null;
+            return JsonConvert.DeserializeObject<Message>(smsg);
+        }
     }
 }
