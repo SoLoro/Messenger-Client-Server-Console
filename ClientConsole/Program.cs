@@ -94,6 +94,16 @@ namespace DotChat
                 TextAlignment = TextAlignment.Right,
             };
             winMain.Add(labelMessage);
+            
+            // Создание поля ввода username
+            fieldUsername = new TextField()
+            {
+                X = 15,
+                Y = Pos.Bottom(winMain) - 5,
+                Width = winMain.Width - 15,
+                Height = 1,
+            };
+            winMain.Add(fieldUsername);
         }
     }
 }
