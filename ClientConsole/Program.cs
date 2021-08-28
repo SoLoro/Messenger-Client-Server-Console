@@ -173,5 +173,20 @@ namespace DotChat
             }
             Application.Refresh();
         }
+        
+        // Отправляет сообщение на сервер
+        static void SendMessage(Message msg) {
+            WebRequest req = WebRequest.Create("http://localhost:5000/api/chat");
+            req.Method = "POST";
+            string postData = JsonConvert.SerializeObject(msg);
+            byte[] bytes = Encoding.UTF8.GetBytes(postData);
+            req.ContentType = "application/json";
+            req.ContentLength = bytes.Length;
+            Stream reqStream = req.GetRequestStream();
+            reqStream.Write(bytes);
+            reqStream.Close();
+
+            req.GetResponse();
+        }
     }
 }
