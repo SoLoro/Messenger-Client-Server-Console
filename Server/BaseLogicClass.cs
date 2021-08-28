@@ -8,6 +8,27 @@ using System.Threading.Tasks;
 namespace Server
 {
   [Serializable]
+  public class message
+  {
+    public string username { get; set; }
+    public string text { get; set; }
+    public string timestamp { get; set; }
+
+    public message()
+    {
+      this.username = "Server";
+      this.text = "Server is running...";
+      this.timestamp = DateTime.Now.ToString("dd MMM H:mm");
+    }
+
+    public message(string username, string text)
+    {
+      this.username = username;
+      this.text = text;
+      this.timestamp = DateTime.Now.ToString("dd MMM H:mm");
+    }
+  }
+  [Serializable]
   public class SessionsClass
   {
     public List<tokens> list_tokens = new List<tokens>();
