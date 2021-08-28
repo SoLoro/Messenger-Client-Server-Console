@@ -126,6 +126,22 @@ namespace DotChat
             };
             btnSend.Clicked += OnBtnSendClick;
             winMain.Add(btnSend);
+            
+            // Создание цикла получения сообщений
+            int lastMsgID = 0;
+            Timer updateLoop = new Timer();
+            updateLoop.Interval = 1000;
+            updateLoop.Elapsed += (object sender, ElapsedEventArgs e) => {
+                Message msg = GetMessage(lastMsgID);
+                if (msg != null) {
+                    messages.Add(msg);
+                    MessagesUpdate();
+                    lastMsgID++;
+                }
+            };
+            updateLoop.Start();
+
+            Application.Run();
         }
     }
 }
