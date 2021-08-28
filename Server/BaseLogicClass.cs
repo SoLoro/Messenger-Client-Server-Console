@@ -86,6 +86,27 @@ namespace Server
       }
     }
   }
+  public class tokens
+  {
+    public int token { get; set; }
+    public string login { get; set; }
+    public string password { get; set; }
+
+    public tokens()
+    {
+      this.token = -1;
+      this.login = "none";
+      this.password = "none";
+    }
+
+    public tokens(int token, string login, string password)
+    {
+      this.token = token;
+      this.login = login;
+      this.password = password;
+    }
+
+  }
   [Serializable]
   public class SessionsClass
   {
