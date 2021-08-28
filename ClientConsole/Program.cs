@@ -82,6 +82,18 @@ namespace DotChat
                 TextAlignment = TextAlignment.Right,
             };
             winMain.Add(labelUsername);
+            
+            // Создание надписи с message
+            labelMessage = new Label()
+            {
+                X = 0,
+                Y = Pos.Bottom(winMain) - 4,
+                Width = 15,
+                Height = 1,
+                Text = "Message:",
+                TextAlignment = TextAlignment.Right,
+            };
+            winMain.Add(labelMessage);
         }
     }
 }
