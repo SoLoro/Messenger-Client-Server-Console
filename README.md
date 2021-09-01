@@ -8,7 +8,7 @@ ____
 ## Languages
 *C#*
 ____
-## Libraries
+## Libraries & Frameworks
 *.NETCoreApp, Docker, UML, Newtonsoft, .NETFramework, ASP.Net Core, SDK*
 ____
 ## How to use it?
